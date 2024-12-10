@@ -1,0 +1,58 @@
+<body>
+    <h2>함수</h2>
+    <script>
+        console.error("전역변수를 var로 선언");
+        /*
+        var는 함수 스코프를 가지며, 전역에서 선언되면 암묵적으로 window
+        객체의 속성이 된다.
+        */
+        var globalVar =100;
+        function conflict1(globalVar){
+            //this는 window객체를 가리킨다. 즉 전역변수가 된다.
+            //매개변수로 전달된 100에 2를 곱한 결과가 전역변수에 저장됨.
+            this.globalVar = globalVar *2;
+        }
+        consloe.log("conflict1() 호출전",globalVar);// 100출력
+        conflict1(globalVar); //100전달
+        console.log("conflict1() 호출후", globalVar); //200출력
+
+        console.error("전역변수를 let으로 선언");
+        /*
+        let은 블록 스코프를 가지며, 전역에서 선언되더라도 window객체의
+        속성이 되지 않는다.
+        */
+        let globalLet = 100;
+        function conflict2(globalLet){
+            /*
+            window를 가리키는 것은 동일하나 let으로 선언된 변수와는
+            독립적으로 동작한다. 즉 window객체의 또 다른 변수 하나가 
+            추가된다고 생각하면 된다.
+            */
+            this.globalLet = globalLet * 2;
+        }
+
+        console.log("conflict2() 호출전",globalLet); //100출력
+        conflict2(globalLet);
+        console.log("conflict2() 호출후",globalLet); //100출력
+        console.error("전역변수와 지역변수 구분");
+
+        //let으로 전역변수 선언
+        let globalNum = 100;
+        function betterFunc(localNum){
+            // 100이 전달되므로 150, 180이 되고..
+            globalNum = localNum +50;
+            localNume = localNum + 80;
+            //여기서 출력된다.
+            console.log("함수안 globlaNum="+globalNum,
+                "localNum="+ localNum);
+            //매개변수(지역변수)인 localNum은 함수 종료시 소멸된다.
+        }
+        betterFunc(globalNum);
+
+        // 함수 외부에서 localNum은 선언된적이 없으므로 에러가 발생한다.
+        // console.log("함수밖 globalNum="+globalNum,
+        //              "localNum="+localNum);
+        console.log("함수밖 globalNum=",globalNum,
+            "localNum=선언된적없음");
+    </script>
+</body>

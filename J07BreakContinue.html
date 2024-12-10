@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>continue 와 break</h2>
+    <script>
+        /*
+        break : 반복문이나 switch문에서 즉시 탈출한다.
+        continue : 반복문의 처음으로 돌아가서 조건을 확인한다.
+        공통적으로 아래에 있는 문장들은 실행되지 않으므로 반드시 조건부로
+        사용해야한다.
+        */
+        var i=0;
+        /*
+        Java와는 다르게 무한루프의 조건으로 true이외1,-1등을 사용할 수
+        있다. 0, null, false가 아니면 모두 true로 인식하기 때문이다.
+        */
+        while(true){
+            i++;
+            console.log("i="+i);
+            // i가 3이되면 while문을 탈출
+            if(i==3) break;
+
+            console.log("break문 이후 출력문");
+            //i가 짝수이면 while문의 처음으로 이동
+            if(i%2 ==0) continue;
+            console.log("continue문 이후 출력문");
+            /*
+            break, continue문을 조건없이 사용하더라도 Java처럼
+            에러가 발생하진 않는다.
+            */
+        }
+        console.error("while문 종료");
+    </script>
+</body>
+</html>

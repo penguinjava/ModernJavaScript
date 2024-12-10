@@ -1,0 +1,42 @@
+<body>
+    <h2>연산자</h2>
+    <script>
+        //소괄호가 없다면 *,/,%가 +,- 보다 우선순위가높다.
+        console.error("산술 연산자");
+        console.log("결과1=",3%5 * 2+ 10 /5); //결과->8
+        //정수와의 연산결과로 실수가 나올 수 있다.
+        console.log("결과2=",3/5); //결과->0.6
+        
+        console.error("비교 연산자");
+        //JS에서는 문자열끼리 비교연산을 할 수 있다.
+        console.log('결과1=',"가나다1">'가나다');//결과->true
+        //3>9는 false == 0는 false ==> 따라서 결과는 true
+        console.log('결과2=', 3>9==0); //결과-> true
+        console.log('결과3=', (-1)? true : false); //결과->ture
+        console.log('결과4=',(null)? true : false); //결과->false
+        console.log('결과5=',(10-10)? true : false); //결과->false
+        console.log('결과6=',("자바스크립트")?true:false); //결과->true
+        
+        console.error("논리 연산자");
+        /*
+         T || (T&&!(true))=> T||F=>true
+         javascript에서 논리or와 논리and가 동시에
+         나오면 and가 우선순위가 높아서 먼저 평가된다.
+        */
+        console.log("결과=",(3>2)|| 5<=10 && !(3-4));
+        /*
+        전위증가인 경우 변수의 값이 먼저 변경된 후 코드에 적용된다.
+        후위증가인 경우 코드에 먼저 값이 적용된 후 변수의 값이 변견된다.
+        */
+        console.error("증감 연산자");
+        var num = 10;
+        //전위증가이므로 num의 값이 먼저 증가된 후 출력됨
+        console.log("num=",++num); //결과->11
+        //후위증가이므로 num이 먼저 출력된 후 값이 증가됨
+        console.log("num=",num++); //결과:->11
+        console.log("num=",num);//결과->12
+        //앞에서 11이 출력된 후 증가된다.
+        console.log("복합 대입 연산자");
+        console.log("num%=5=",num%=5); //결과->2
+    </script>
+</body>
