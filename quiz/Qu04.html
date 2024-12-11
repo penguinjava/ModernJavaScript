@@ -1,0 +1,26 @@
+
+<body>
+    <h3>document.write()로 표만들기</h3>
+    <hr>
+    <script>
+
+        document.write("<table border='1'>");
+        for(let r=0;r<2;r++){
+            if(r==0){
+                document.write("<tr><th>n</th>");
+                for(let c=0;c<10;c++){
+                    document.write("<td>"+c+"</td>")
+                }
+            }else{
+                document.write("<tr><th>n<sup>2</sup></th>");
+                for(let c=0;c<10;c++){
+                    document.write("<td>"+(c*c)+"</td>")
+                }
+            }
+
+            
+        }
+        documetn.write("</tr>");
+        document.write("</table>");
+    </script>
+</body>

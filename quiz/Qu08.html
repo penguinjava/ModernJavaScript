@@ -1,0 +1,18 @@
+<body>
+    <script>
+        let num = prompt("숫자를 입력하세요");
+        let lastNum = num % 10;
+        let fNum = num;
+        while(1){
+            fNum = Math.floor(fNum/10);
+            if(fNum<10){
+                break;
+            }
+        }
+        if(lastNum==fNum){
+            document.write("성공");
+        }else{
+            document.write("다름");
+        }
+    </script>
+</body>
